@@ -13,93 +13,95 @@
   <!-- Shared header -->
   <div id="header"></div>
 
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="profile-photo">
-        <img src="/images/gereon.png" alt="Profile photo of Gereon Wildermann">
+  <main class="container">
+    <!-- Profile Section -->
+    <section class="hero" id="profile">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Gereon S. Wildermann</h1>
+          <p><strong>Position:</strong> PhD Student / Researcher</p>
+          <p><strong>Email:</strong> <a href="mailto:gereon.wildermann@kit.edu">gereon.wildermann@kit.edu</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+4972160842274">+49 721 608-42274</a></p>
+          <img src="/images/gereon.png" alt="Profile photo" class="group-photo" style="max-width:200px; height:auto;">
+
+          <p class="bio">
+            Short professional bio goes here. Mention current research interests,
+            academic background, and focus areas. Each member can adapt this text.
+          </p>
+
+          <!-- Social Links -->
+          <div class="social-links">
+            <a href="https://scholar.google.com/" target="_blank" aria-label="Google Scholar">
+              <img src="../images/google-scholar.png" alt="Google Scholar">
+            </a>
+            <a href="https://orcid.org/0009-0001-2234-319X" target="_blank" aria-label="ORCID">
+              <img src="../images/orcid.png" alt="ORCID">
+            </a>
+            <a href="https://www.researchgate.net/profile/Gereon-Wildermann" target="_blank" aria-label="ResearchGate">
+              <img src="../images/researchgate.png" alt="ResearchGate">
+            </a>
+            <a href="https://github.com/gereonwildermann" target="_blank" aria-label="GitHub">
+              <img src="../images/github-mark.png" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/gereon-wildermann-95a619217/" target="_blank" aria-label="LinkedIn">
+              <img src="../images/linkedin.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+
+        </div>
       </div>
-      <h1>Gereon S. Wildermann</h1>
-      <p><strong>PhD Student / Researcher</strong></p>
+    </section>
 
-      <p><a href="mailto:gereon.wildermann@kit.edu">gereon.wildermann@kit.edu</a></p>
-      <p><a href="tel:+4972160842274">+49 721 608-42274</a></p>
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>PhD in Civil Engineering</strong>, Karlsruhe Institute of Technology (2024 – Present)</li>
+        <li><strong>MSc in Engineering Structures</strong>, Karlsruhe Institute of Technology (2021 – 2023)</li>
+        <li><strong>BSc in Civil Engineering</strong>, Karlsruhe Institute of Technology (2018 – 2021)</li>
+      </ul>
+    </section>
 
-      <p class="bio">
-        Short professional bio goes here. Mention current research interests,
-        academic background, and focus areas. Each member can adapt this text.
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Research Associate</strong>, KIT IMB MPA — Focus on multiscale modeling of concrete (2020 – Present)</li>
+        <li><strong>Intern</strong>, Engineering Firm XYZ — Structural analysis of building materials (2019)</li>
+      </ul>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul>
+        <li><strong>Title of Paper</strong>, Author Names, <em>Journal/Conference</em>, Year.</li>
+        <li><strong>Another Paper</strong>, Author Names, <em>Journal/Conference</em>, Year.</li>
+      </ul>
+    </section>
+
+    <!-- Teaching / Projects -->
+    <section id="teaching">
+      <h2>Teaching / Projects</h2>
+      <p>
+        Mention courses taught, supervision, or projects here.
       </p>
+    </section>
 
-      <!-- Social Links -->
-      <div class="social-links">
-        <a href="https://scholar.google.com/" target="_blank"><img src="../images/google-scholar.png" alt="Google Scholar"></a>
-        <a href="https://orcid.org/0009-0001-2234-319X" target="_blank"><img src="../images/orcid.png" alt="ORCID"></a>
-        <a href="https://www.researchgate.net/profile/Gereon-Wildermann" target="_blank"><img src="../images/researchgate.png" alt="ResearchGate"></a>
-        <a href="https://github.com/gereonwildermann" target="_blank"><img src="../images/github-mark.png" alt="GitHub"></a>
-        <a href="https://www.linkedin.com/in/gereon-wildermann-95a619217/" target="_blank"><img src="../images/linkedin.png" alt="LinkedIn"></a>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="content">
-      <!-- Education Section -->
-      <section id="education">
-        <h2>Education</h2>
-        <ul>
-          <li><strong>PhD in Civil Engineering</strong>, Karlsruhe Institute of Technology (2024 – Present)</li>
-          <li><strong>MSc in Engineering Structures</strong>, Karlsruhe Institute of Technology (2021 – 2023)</li>
-          <li><strong>BSc in Civil Engineering</strong>, Karlsruhe Institute of Technology (2018 – 2021)</li>
-        </ul>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-          <li><strong>Research Associate</strong>, KIT IMB MPA — Focus on multiscale modeling of concrete (2020 – Present)</li>
-          <li><strong>Intern</strong>, Engineering Firm XYZ — Structural analysis of building materials (2019)</li>
-        </ul>
-      </section>
-
-      <!-- CV -->
-      <section id="cv">
-        <h2>Curriculum Vitae</h2>
-        <p>
-          A downloadable <a href="files/sample.pdf" download>CV (PDF)</a> can be added here.
-        </p>
-      </section>
-
-      <!-- Publications -->
-      <section id="publications">
-        <h2>Publications</h2>
-        <ul>
-          <li><strong>Title of Paper</strong>, Author Names, <em>Journal/Conference</em>, Year.</li>
-          <li><strong>Another Paper</strong>, Author Names, <em>Journal/Conference</em>, Year.</li>
-        </ul>
-      </section>
-
-      <!-- Teaching / Projects -->
-      <section id="teaching">
-        <h2>Teaching / Projects</h2>
-        <p>
-          Mention courses taught, supervision, or projects here.
-        </p>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <h2>Contact</h2>
-        <address>
-          Karlsruhe Institute of Technology (KIT)<br>
-          Institute of Concrete Structures and Building Materials<br>
-          Building Materials and Concrete Construction<br>
-          Division IV – Modeling and Simulation<br>
-          Gotthard-Franz-Str. 3, Building 50.31<br>
-          76131 Karlsruhe, Germany<br>
-        </address>
-      </section>
-    </main>
-  </div>
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <address>
+        Karlsruhe Institute of Technology (KIT)<br>
+        Institute of Concrete Structures and Building Materials<br>
+        Building Materials and Concrete Construction<br>
+        Division IV – Modeling and Simulation<br>
+        Gotthard-Franz-Str. 3, Building 50.31<br>
+        76131 Karlsruhe, Germany<br>
+      </address>
+    </section>
+  </main>
 
   <!-- Shared footer -->
   <div id="footer"></div>
