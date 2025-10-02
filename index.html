@@ -66,6 +66,15 @@
       margin-bottom: 2rem;
     }
 
+    .profile-image img {
+      width: 100px;      /* adjust as needed */
+      height: auto;
+      border-radius: 50%;  /* makes it circular */
+      object-fit: cover;   /* keeps aspect ratio */
+      display: block;
+      margin: 0 auto 1rem; /* centers the image */
+    }
+
     h1 {
       font-size: 1.8rem;
       font-weight: 700;
@@ -277,7 +286,9 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-      <div class="profile-placeholder">GW</div>
+      <div class="profile-image">
+        <img src="images/gereon.png" alt="Profile picture of Gereon S. Wildermann">
+      </div>
       <h1>Gereon S. Wildermann</h1>
       <p class="title">PhD Student / Researcher</p>
       <div class="contact-info">
@@ -302,6 +313,7 @@
 
     <main class="main-content">
       <div class="bio">
+        <h2>Research Interests </h2>
         My research focuses on multi-scale, multi-physics modelling of degradation and corrosion in reinforced concrete.
       </div>
 
