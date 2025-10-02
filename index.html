@@ -6,108 +6,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gereon S. Wildermann - Academic Webpage</title>
   <meta name="description" content="Academic webpage of Gereon S. Wildermann." />
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-  <!-- Shared header -->
-  <div id="header"></div>
+  <div class="container">
+    <!-- Header -->
+    <div id="header"></div>
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
 
-  <main class="container">
-    <!-- Profile Section -->
-    <section class="hero" id="profile">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <h1>Gereon S. Wildermann</h1>
-          <p><strong>Position:</strong> PhD Student / Researcher</p>
-          <p><i class="fas fa-envelope" style="margin-right: 8px;"></i><a href="mailto:gereon.wildermann@kit.edu">gereon.wildermann@kit.edu</a></p>
-          <p><i class="fas fa-phone" style="margin-right: 8px;"></i><a href="tel:+4972160842274">+49 721 608-42274</a></p>
-          <img src="/images/gereon.png" alt="Profile photo" class="group-photo" style="max-width:200px; height:auto;">
 
-          <p class="bio">
-            My research focuses on multi-scale, multi-physics modelling of degradation and corrosion in reinforced concrete.
-          </p>
-
-          <!-- Social Links -->
-          <div class="social-links">
-            <a href="https://orcid.org/0009-0001-2234-319X" target="_blank" aria-label="ORCID">
-              <img src="../images/orcid.png" alt="ORCID">
-            </a>
-            <a href="https://www.researchgate.net/profile/Gereon-Wildermann" target="_blank" aria-label="ResearchGate">
-              <img src="../images/researchgate.png" alt="ResearchGate">
-            </a>
-            <a href="https://github.com/gereonwildermann" target="_blank" aria-label="GitHub">
-              <img src="../images/github-mark.png" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/gereon-wildermann-95a619217/" target="_blank" aria-label="LinkedIn">
-              <img src="../images/linkedin.png" alt="LinkedIn">
-            </a>
-          </div>
-        </div>
-
-        </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="bio">
+        My research focuses on multi-scale, multi-physics modelling of degradation and corrosion in reinforced concrete.
       </div>
-    </section>
 
-    <!-- Education Section -->
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>PhD in Civil Engineering</strong>, Karlsruhe Institute of Technology (2024 – Present)</li>
-        <li><strong>MSc in Engineering Structures</strong>, Karlsruhe Institute of Technology (2021 – 2023)</li>
-        <li><strong>BSc in Civil Engineering</strong>, Karlsruhe Institute of Technology (2018 – 2021)</li>
-      </ul>
-    </section>
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <strong>PhD in Civil Engineering</strong>
+            Karlsruhe Institute of Technology<br>
+            2024 – Present
+          </li>
+          <li>
+            <strong>MSc in Engineering Structures</strong>
+            Karlsruhe Institute of Technology<br>
+            2021 – 2023
+          </li>
+          <li>
+            <strong>BSc in Civil Engineering</strong>
+            Karlsruhe Institute of Technology<br>
+            2018 – 2021
+          </li>
+        </ul>
+      </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Research Associate</strong>, <a href="https://www.imb.kit.edu/bt/">Karlsruhe Institute of Technology - Institute of Concrete Structures and Building Materials</a> — Focus on multiscale modeling of concrete (2020 – Present)</li>
-      </ul>
-    </section>
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+          <li>
+            <strong>Research Associate</strong>
+            <a href="https://www.imb.kit.edu/bt/">Karlsruhe Institute of Technology - Institute of Concrete Structures and Building Materials</a><br>
+            Focus on multiscale modeling of concrete<br>
+            2020 – Present
+          </li>
+        </ul>
+      </section>
 
-    <!-- Publications -->
-    <section id="publications">
-      <h2>Publications</h2>
-      <ul>
-        <li><strong>MULTIPHYSICS SIMULATION OF CONCRETE EVOLUTION DUE TO COMBINED ACTIONS OF DIFFERENT DEGRADATION PROCESSES</strong>, Gereon Wildermann, Ravi Patel, Ludwig Bahr, Frank Dehn, <em>Conference</em>, 2025.</li>
-        <li><strong>Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</strong>, Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn, <em>Conference</em>, 2025.</li>
-      </ul>
-    </section>
+      <section id="publications">
+        <h2>Publications</h2>
+        <ul>
+          <li>
+            <strong>MULTIPHYSICS SIMULATION OF CONCRETE EVOLUTION DUE TO COMBINED ACTIONS OF DIFFERENT DEGRADATION PROCESSES</strong>
+            Gereon Wildermann, Ravi Patel, Ludwig Bahr, Frank Dehn<br>
+            <em>Conference, 2025</em>
+          </li>
+          <li>
+            <strong>Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</strong>
+            Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn<br>
+            <em>Conference, 2025</em>
+          </li>
+        </ul>
+      </section>
 
-    <!-- Teaching / Projects -->
-    <section id="teaching">
-      <h2>Teaching / Projects</h2>
-      <p>
-        <strong>Teaching Assistant</strong> — courses: <em>Modelling in Concrete Technology</em> and <em>Building Preservation of Concrete and Masonry Constructions</em>.
-      </p>
-    </section>
+      <section id="teaching">
+        <h2>Teaching / Projects</h2>
+        <div class="teaching-content">
+          <strong>Teaching Assistant</strong>
+          Courses: <em>Modelling in Concrete Technology</em> and <em>Building Preservation of Concrete and Masonry Constructions</em>
+        </div>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <address>
-        Karlsruhe Institute of Technology (KIT)<br>
-        Institute of Concrete Structures and Building Materials<br>
-        Building Materials and Concrete Construction<br>
-        Division IV – Modeling and Simulation<br>
-        Gotthard-Franz-Str. 3, Building 50.31<br>
-        76131 Karlsruhe, Germany<br>
-      </address>
-    </section>
-  </main>
+      <section id="contact">
+        <h2>Contact</h2>
+        <address>
+          <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
+          Institute of Concrete Structures and Building Materials<br>
+          Building Materials and Concrete Construction<br>
+          Division IV – Modeling and Simulation<br>
+          Gotthard-Franz-Str. 3, Building 50.31<br>
+          76131 Karlsruhe, Germany
+        </address>
+      </section>
 
-  <!-- Shared footer -->
-  <div id="footer"></div>
+      <!-- Footer -->
+      <div id="footer"></div>
+    </main>
+  </div>
 
   <script>
     // Load shared header and footer
-    fetch("../header.html").then(res => res.text()).then(html => {
+    fetch("header.html").then(res => res.text()).then(html => {
       document.getElementById("header").innerHTML = html;
     });
-    fetch("../footer.html").then(res => res.text()).then(html => {
+    fetch("sidebar.html").then(res => res.text()).then(html => {
+      document.getElementById("sidebar").innerHTML = html;
+    });
+    fetch("footer.html").then(res => res.text()).then(html => {
       document.getElementById("footer").innerHTML = html;
     });
   </script>
