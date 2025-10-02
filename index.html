@@ -14,8 +14,6 @@
   <div class="container">
     <!-- Header -->
     <div id="header"></div>
-    <!-- Sidebar -->
-    <div id="sidebar"></div>
 
 
     <!-- Main Content -->
@@ -52,7 +50,7 @@
             <strong>Research Associate</strong>
             <a href="https://www.imb.kit.edu/bt/">Karlsruhe Institute of Technology - Institute of Concrete Structures and Building Materials</a><br>
             Focus on multiscale modeling of concrete<br>
-            2020 – Present
+            2024 – Present
           </li>
         </ul>
       </section>
@@ -102,9 +100,6 @@
     // Load shared header and footer
     fetch("header.html").then(res => res.text()).then(html => {
       document.getElementById("header").innerHTML = html;
-    });
-    fetch("sidebar.html").then(res => res.text()).then(html => {
-      document.getElementById("sidebar").innerHTML = html;
     });
     fetch("footer.html").then(res => res.text()).then(html => {
       document.getElementById("footer").innerHTML = html;
