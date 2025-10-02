@@ -298,6 +298,7 @@
 </script>
 
 <body>
+  <div id="header"></div>
   <div class="container">
     <aside class="sidebar">
       <div class="profile-image">
@@ -326,8 +327,6 @@
     </aside>
 
     <main class="main-content">
-      <div id="header"></div>
-
       <div class="bio">
         <h2>Research Interests </h2>
         My research focuses on multi-scale, multi-physics modelling of degradation and corrosion in reinforced concrete.
@@ -413,8 +412,12 @@
         </address>
       </section>
     </main>
-    <div id="footer"></div>
   </div>
+  <div id="footer"></div>
+  <script>
+    // Set current year in footer
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
