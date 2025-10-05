@@ -308,6 +308,10 @@
         margin-left: 0;
         width: 100%;
       }
+      .main-content {
+        max-width: 95vw;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+      }
     }
     @media (max-width: 600px) {
       h1 {
@@ -315,6 +319,16 @@
       }
       .title {
         font-size: 0.8rem;
+      }
+      .main-content {
+        max-width: 98vw;
+        padding: clamp(1rem, 3vw, 1.5rem);
+      }
+      section {
+        padding: 1.5rem;
+      }
+      .bio {
+        padding: 1.5rem;
       }
       address {
         font-size: 0.8rem;
