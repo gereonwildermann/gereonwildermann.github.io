@@ -134,10 +134,11 @@
       width: calc(100% - 400px);
     }
     .main-content {
-      padding: clamp(2rem, 5vw, 3rem);
-      max-width: 800px;
+      padding: clamp(2rem, 5vw, 4rem);
+      max-width: min(1000px, 80vw);
       flex: 1;
       overflow-y: auto;
+      margin: 0 auto;
     }
     .bio {
       color: #333;
@@ -280,6 +281,15 @@
       width: 100%;
     }
     /* Responsive adjustments */
+    @media (min-width: 1400px) {
+      .main-content {
+        max-width: min(1200px, 70vw);
+        padding: clamp(3rem, 6vw, 5rem);
+      }
+      .container {
+        max-width: none;
+      }
+    }
     @media (max-width: 968px) {
       .container {
         display: grid;
