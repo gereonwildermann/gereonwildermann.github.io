@@ -32,24 +32,82 @@
       display: flex;
       flex-direction: column;
     }
+    
+    /* Header Navigation */
+    .header-nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--green);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 60px;
+    }
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-menu a {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--green);
+      background: var(--gray05);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--black);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .mobile-menu-toggle:hover {
+      color: var(--green);
+    }
+    
     /* Layout */
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       flex: 1;
-      min-height: calc(100vh - 40px); /* Adjust for footer height */
     }
+    
     /* Sidebar */
     .sidebar {
       background: var(--white);
       padding: clamp(2rem, 5vw, 3rem) 2rem;
-      min-height: 100vh;
       border-right: 1px solid var(--gray05);
-      position: fixed;
+      position: sticky;
+      top: 60px;
       width: 400px;
-      top: 0;
-      left: 0;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -129,12 +187,12 @@
     .social-links i {
       font-size: 20px;
     }
+    
     /* Main Content */
     .main-and-footer {
       display: flex;
       flex-direction: column;
       flex: 1;
-      margin-left: 400px;
       width: calc(100% - 400px);
     }
     .main-content {
@@ -144,6 +202,15 @@
       overflow-y: auto;
       margin: 0 auto;
     }
+    
+    /* Page visibility */
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    
     .bio {
       color: var(--gray80);
       font-size: clamp(1rem, 2vw, 1.05rem);
@@ -224,16 +291,7 @@
       font-weight: 600;
       font-size: clamp(0.9rem, 2.2vw, 1.05rem);
     }
-    .teaching-content {
-      color: var(--gray80);
-      line-height: 1.7;
-    }
-    .teaching-content strong {
-      color: var(--black);
-      font-weight: 600;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
+    
     /* Teaching Timeline */
     .teaching-timeline {
       position: relative;
@@ -278,6 +336,7 @@
       color: var(--black);
       line-height: 1.8;
     }
+    
     /* Footer */
     footer {
       padding: 1rem;
@@ -286,30 +345,40 @@
       text-align: center;
       width: 100%;
     }
+    
     /* Responsive adjustments */
-    @media (min-width: 1400px) {
-      .main-content {
-        max-width: min(1200px, 70vw);
-        padding: clamp(3rem, 6vw, 5rem);
-      }
-      .container {
-        max-width: none;
-      }
-    }
     @media (max-width: 968px) {
+      .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 250px;
+        height: calc(100vh - 60px);
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 0.5rem;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+      }
+      .nav-menu.active {
+        left: 0;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
       .container {
-        display: grid;
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
       .sidebar {
         position: relative;
-        min-height: auto;
+        width: 100%;
+        height: auto;
         border-right: none;
         border-bottom: 1px solid var(--gray05);
-        width: 100%;
+        top: 0;
       }
       .main-and-footer {
-        margin-left: 0;
         width: 100%;
       }
       .main-content {
@@ -317,7 +386,11 @@
         padding: clamp(1.5rem, 4vw, 2.5rem);
       }
     }
+    
     @media (max-width: 600px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
       h1 {
         font-size: 1.5rem;
       }
@@ -334,18 +407,28 @@
       .bio {
         padding: 1.5rem;
       }
-      address {
-        font-size: 0.8rem;
-        line-height: 1.6;
-      }
-      address strong {
-        font-size: 0.85rem;
-      }
     }
   </style>
 </head>
 <body>
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <nav class="nav-container">
+      <a href="#" class="nav-logo" onclick="showPage('home'); return false;">Gereon S. Wildermann</a>
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#" class="active" onclick="showPage('home'); return false;">Home</a></li>
+        <li><a href="#" onclick="showPage('research'); return false;">Research</a></li>
+        <li><a href="#" onclick="showPage('teaching'); return false;">Teaching</a></li>
+        <li><a href="#" onclick="showPage('cv'); return false;">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="container">
+    <!-- Sidebar (appears on all pages) -->
     <aside class="sidebar">
       <div class="profile-image">
         <img src="images/gereon.png" alt="Profile picture of Gereon S. Wildermann">
@@ -375,121 +458,182 @@
         </a>
       </div>
     </aside>
+
     <div class="main-and-footer">
       <main class="main-content">
-        <div class="bio">
-          <p>I am a research assistant at the <a href="https://www.kit.edu/english/index.php"><em>Karlsruhe Institute of Technology</em></a> (Karlsruhe, Germany) in the working group <em>Numerical Modeling and Digitalization for Building Materials and Concrete Structures</em> led by <a href="https://www.imb.kit.edu/bt/196_800.php">Dr. Ravi Patel</a>. This group is part of the <a href="https://www.imb.kit.edu/bt/"><em>Institute of Concrete Structures and Building Materials, Department of Building Materials</em></a>, headed by <a href="https://www.imb.kit.edu/bt/196_211.php">Prof. Dr.-Ing. Frank Dehn</a>.</p><br>
-          <p>My research focuses on multi-scale, multi-physics modeling of degradation and corrosion processes in reinforced concrete.</p>
-        </div>
-        <section id="publications">
-          <h2>Publications</h2>
-          <ul>
-            <li>
-              <strong>MULTIPHYSICS SIMULATION OF CONCRETE EVOLUTION DUE TO COMBINED ACTIONS OF DIFFERENT DEGRADATION PROCESSES</strong>
-              <span>Gereon Wildermann, Ravi Patel, Ludwig Bahr, Frank Dehn</span><br>
-              <em>28th International Conference on Structual Mechanics in Reactor Technology, 2025</em>
-            </li>
-            <li>
-              <strong><a href="https://doi.org/10.21012/FC12.1253">Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</a></strong>
-              <span>Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn</span><br>
-              <em>FraMCoS XII - Fracture Mechanics for Concrete and Concrete Structures, 2025</em>
-            </li>
-          </ul>
-        </section>
-        <section id="teaching_experience">
-          <h2>Teaching Experience</h2>
-          <div class="teaching-timeline">
-            <div class="teaching-item">
-              <p class="teaching-period">Summer Semester 2025</p>
-              <h3 class="teaching-title">Building Preservation of Concrete and Masonry Constructions</h3>
-              <p class="teaching-description">
-                <em>Teaching Assistance</em><br>
-                Graduate-level course focussing evaluation of the condition of existing concrete and masonry structures with non-destructive or low-destructive testing methods in order to obtain the necessary information for any maintenance measures.
-              </p>
-            </div>
-            <div class="teaching-item">
-              <p class="teaching-period">Winter Semester 2024/25</p>
-              <h3 class="teaching-title">Modelling in Concrete Technology</h3>
-              <p class="teaching-description">
-                <em>Teaching Assistance</em><br>
-                Graduate-level course covering fundamental concepts in multi-scale modelling and fracture-mechanics for concrete.
-              </p>
-            </div>
-            <div class="teaching-item">
-              <p class="teaching-period">Summer Semester 2024</p>
-              <h3 class="teaching-title">Building Preservation of Concrete and Masonry Constructions</h3>
-              <p class="teaching-description">
-                <em>Teaching Assistance</em><br>
-                Graduate-level course focussing evaluation of the condition of existing concrete and masonry structures with non-destructive or low-destructive testing methods in order to obtain the necessary information for any maintenance measures.
-              </p>
-            </div>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+          <div class="bio">
+            <p>I am a research assistant at the <a href="https://www.kit.edu/english/index.php"><em>Karlsruhe Institute of Technology</em></a> (Karlsruhe, Germany) in the working group <em>Numerical Modeling and Digitalization for Building Materials and Concrete Structures</em> led by <a href="https://www.imb.kit.edu/bt/196_800.php">Dr. Ravi Patel</a>. This group is part of the <a href="https://www.imb.kit.edu/bt/"><em>Institute of Concrete Structures and Building Materials, Department of Building Materials</em></a>, headed by <a href="https://www.imb.kit.edu/bt/196_211.php">Prof. Dr.-Ing. Frank Dehn</a>.</p><br>
+            <p>My research focuses on multi-scale, multi-physics modeling of degradation and corrosion processes in reinforced concrete.</p>
           </div>
-        </section>
-        <section id="supervision">
-          <h2>Supervision</h2>
-          <ul>
-            <li>
-              <strong>Bachelor Thesis (2025)</strong>
-              <em>Application of Physics-Informed Neural Networks (PINNs) for Modeling Transport Processes in Concrete</em>, by J. Post (Co-Supervision)
-            </li>
-            <li>
-              <strong>Master Thesis (2025)</strong>
-              <em>Experimental Investigation of the Reinforcement Corrosion in LC3 Cements</em>, by L. Han (Supervision)
-            </li>
-          </ul>
-        </section>
-        <section id="education">
-          <h2>Education</h2>
-          <ul>
-            <li>
-              <strong>Ph.D. in Civil Engineering</strong>
-              <span>Karlsruhe Institute of Technology</span><br>
-              <span>2024 – Present</span>
-            </li>
-            <li>
-              <strong>M.Sc. in Engineering Structures</strong>
-              <span>Karlsruhe Institute of Technology</span><br>
-              <span>2021 – 2023</span>
-            </li>
-            <li>
-              <strong>B.Sc. in Civil Engineering</strong>
-              <span>Karlsruhe Institute of Technology</span><br>
-              <span>2018 – 2021</span>
-            </li>
-          </ul>
-        </section>
-        <section id="experience">
-          <h2>Experience</h2>
-          <ul>
-            <li>
-              <strong>Research Assistant</strong>
-              <a href="https://www.imb.kit.edu/bt/">Karlsruhe Institute of Technology - Institute of Concrete Structures and Building Materials</a><br>
-              <span>Focus on multiscale modeling of concrete</span><br>
-              <span>2024 – Present</span>
-            </li>
-          </ul>
-        </section>
-        <section id="contact">
-          <h2>Contact</h2>
 
-          <address>
-            <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
-            Institute of Concrete Structures and Building Materials<br>
-            Building Materials and Concrete Construction<br>
-            Division IV – Modeling and Simulation<br>
-            Gotthard-Franz-Str. 3, Building 50.31<br>
-            76131 Karlsruhe, Germany
-          </address>
-        </section>
+          <section id="contact">
+            <h2>Contact</h2>
+            <address>
+              <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
+              Institute of Concrete Structures and Building Materials<br>
+              Building Materials and Concrete Construction<br>
+              Division IV – Modeling and Simulation<br>
+              Gotthard-Franz-Str. 3, Building 50.31<br>
+              76131 Karlsruhe, Germany
+            </address>
+          </section>
+        </div>
+
+        <!-- Research Page -->
+        <div id="research" class="page">
+          <section id="publications">
+            <h2>Publications</h2>
+            <ul>
+              <li>
+                <strong>MULTIPHYSICS SIMULATION OF CONCRETE EVOLUTION DUE TO COMBINED ACTIONS OF DIFFERENT DEGRADATION PROCESSES</strong>
+                <span>Gereon Wildermann, Ravi Patel, Ludwig Bahr, Frank Dehn</span><br>
+                <em>28th International Conference on Structual Mechanics in Reactor Technology, 2025</em>
+              </li>
+              <li>
+                <strong><a href="https://doi.org/10.21012/FC12.1253">Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</a></strong>
+                <span>Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn</span><br>
+                <em>FraMCoS XII - Fracture Mechanics for Concrete and Concrete Structures, 2025</em>
+              </li>
+            </ul>
+          </section>
+
+          <section id="supervision">
+            <h2>Supervision</h2>
+            <ul>
+              <li>
+                <strong>Bachelor Thesis (2025)</strong>
+                <em>Application of Physics-Informed Neural Networks (PINNs) for Modeling Transport Processes in Concrete</em>, by J. Post (Co-Supervision)
+              </li>
+              <li>
+                <strong>Master Thesis (2025)</strong>
+                <em>Experimental Investigation of the Reinforcement Corrosion in LC3 Cements</em>, by L. Han (Supervision)
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- Teaching Page -->
+        <div id="teaching" class="page">
+          <section id="teaching_experience">
+            <h2>Teaching Experience</h2>
+            <div class="teaching-timeline">
+              <div class="teaching-item">
+                <p class="teaching-period">Summer Semester 2025</p>
+                <h3 class="teaching-title">Building Preservation of Concrete and Masonry Constructions</h3>
+                <p class="teaching-description">
+                  <em>Teaching Assistance</em><br>
+                  Graduate-level course focussing evaluation of the condition of existing concrete and masonry structures with non-destructive or low-destructive testing methods in order to obtain the necessary information for any maintenance measures.
+                </p>
+              </div>
+              <div class="teaching-item">
+                <p class="teaching-period">Winter Semester 2024/25</p>
+                <h3 class="teaching-title">Modelling in Concrete Technology</h3>
+                <p class="teaching-description">
+                  <em>Teaching Assistance</em><br>
+                  Graduate-level course covering fundamental concepts in multi-scale modelling and fracture-mechanics for concrete.
+                </p>
+              </div>
+              <div class="teaching-item">
+                <p class="teaching-period">Summer Semester 2024</p>
+                <h3 class="teaching-title">Building Preservation of Concrete and Masonry Constructions</h3>
+                <p class="teaching-description">
+                  <em>Teaching Assistance</em><br>
+                  Graduate-level course focussing evaluation of the condition of existing concrete and masonry structures with non-destructive or low-destructive testing methods in order to obtain the necessary information for any maintenance measures.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- CV Page -->
+        <div id="cv" class="page">
+          <section id="education">
+            <h2>Education</h2>
+            <ul>
+              <li>
+                <strong>Ph.D. in Civil Engineering</strong>
+                <span>Karlsruhe Institute of Technology</span><br>
+                <span>2024 – Present</span>
+              </li>
+              <li>
+                <strong>M.Sc. in Engineering Structures</strong>
+                <span>Karlsruhe Institute of Technology</span><br>
+                <span>2021 – 2023</span>
+              </li>
+              <li>
+                <strong>B.Sc. in Civil Engineering</strong>
+                <span>Karlsruhe Institute of Technology</span><br>
+                <span>2018 – 2021</span>
+              </li>
+            </ul>
+          </section>
+
+          <section id="experience">
+            <h2>Experience</h2>
+            <ul>
+              <li>
+                <strong>Research Assistant</strong>
+                <a href="https://www.imb.kit.edu/bt/">Karlsruhe Institute of Technology - Institute of Concrete Structures and Building Materials</a><br>
+                <span>Focus on multiscale modeling of concrete</span><br>
+                <span>2024 – Present</span>
+              </li>
+            </ul>
+          </section>
+        </div>
       </main>
+
       <footer>
         <p>© <span id="y"></span> Gereon Wildermann. Built with GitHub Pages.</p>
       </footer>
     </div>
   </div>
+
   <script>
     // Set current year in footer
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Page navigation
+    function showPage(pageName) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // Show selected page
+      const selectedPage = document.getElementById(pageName);
+      if (selectedPage) {
+        selectedPage.classList.add('active');
+      }
+      
+      // Update active nav link
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Close mobile menu if open
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.remove('active');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const navMenu = document.getElementById('navMenu');
+      const toggleBtn = document.querySelector('.mobile-menu-toggle');
+      
+      if (!navMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
+        navMenu.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
