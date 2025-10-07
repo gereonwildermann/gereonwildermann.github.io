@@ -51,6 +51,9 @@
       padding: 0 2rem;
       height: 60px;
     }
+    .nav-menu {
+      align-items: center;
+    }
     .nav-logo {
       font-size: 1.2rem;
       font-weight: 700;
@@ -423,6 +426,7 @@
         <li><a href="#" onclick="showPage('research'); return false;">Research</a></li>
         <li><a href="#" onclick="showPage('teaching'); return false;">Teaching</a></li>
         <li><a href="#" onclick="showPage('cv'); return false;">CV</a></li>
+        <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -439,8 +443,6 @@
       <div class="contact-info">
         <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Karlsruhe,+Germany" target="_blank" rel="noopener">Karlsruhe, Germany</a></p>
         <p><i class="fas fa-university"></i> <a href="https://www.kit.edu/english/index.php" target="_blank" rel="noopener">Karlsruhe Institute of Technology (KIT)</a></p>
-        <p><i class="fas fa-envelope"></i><a href="mailto:gereon.wildermann@kit.edu">gereon.wildermann@kit.edu</a></p>
-        <p><i class="fas fa-phone"></i><a href="tel:+4972160842274">+49 721 608-42274</a></p>
       </div>
 
       <div class="social-links">
@@ -467,18 +469,6 @@
             <p>I am a research assistant at the <a href="https://www.kit.edu/english/index.php"><em>Karlsruhe Institute of Technology</em></a> (Karlsruhe, Germany) in the working group <em>Numerical Modeling and Digitalization for Building Materials and Concrete Structures</em> led by <a href="https://www.imb.kit.edu/bt/196_800.php">Dr. Ravi Patel</a>. This group is part of the <a href="https://www.imb.kit.edu/bt/"><em>Institute of Concrete Structures and Building Materials, Department of Building Materials</em></a>, headed by <a href="https://www.imb.kit.edu/bt/196_211.php">Prof. Dr.-Ing. Frank Dehn</a>.</p><br>
             <p>My research focuses on multi-scale, multi-physics modeling of degradation and corrosion processes in reinforced concrete.</p>
           </div>
-
-          <section id="contact">
-            <h2>Contact</h2>
-            <address>
-              <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
-              Institute of Concrete Structures and Building Materials<br>
-              Building Materials and Concrete Construction<br>
-              Division IV – Modeling and Simulation<br>
-              Gotthard-Franz-Str. 3, Building 50.31<br>
-              76131 Karlsruhe, Germany
-            </address>
-          </section>
         </div>
 
         <!-- Research Page -->
@@ -495,20 +485,6 @@
                 <strong><a href="https://doi.org/10.21012/FC12.1253">Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</a></strong>
                 <span>Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn</span><br>
                 <em>FraMCoS XII - Fracture Mechanics for Concrete and Concrete Structures, 2025</em>
-              </li>
-            </ul>
-          </section>
-
-          <section id="supervision">
-            <h2>Supervision</h2>
-            <ul>
-              <li>
-                <strong>Bachelor Thesis (2025)</strong>
-                <em>Application of Physics-Informed Neural Networks (PINNs) for Modeling Transport Processes in Concrete</em>, by J. Post (Co-Supervision)
-              </li>
-              <li>
-                <strong>Master Thesis (2025)</strong>
-                <em>Experimental Investigation of the Reinforcement Corrosion in LC3 Cements</em>, by L. Han (Supervision)
               </li>
             </ul>
           </section>
@@ -545,6 +521,20 @@
               </div>
             </div>
           </section>
+
+          <section id="supervision">
+            <h2>Supervision</h2>
+            <ul>
+              <li>
+                <strong>Bachelor Thesis (2025)</strong>
+                <em>Application of Physics-Informed Neural Networks (PINNs) for Modeling Transport Processes in Concrete</em>, by J. Post (Co-Supervision)
+              </li>
+              <li>
+                <strong>Master Thesis (2025)</strong>
+                <em>Experimental Investigation of the Reinforcement Corrosion in LC3 Cements</em>, by L. Han (Supervision)
+              </li>
+            </ul>
+          </section>
         </div>
 
         <!-- CV Page -->
@@ -580,6 +570,25 @@
                 <span>2024 – Present</span>
               </li>
             </ul>
+          </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+          <section>
+            <h2>Contact Information</h2>
+            <div class="contact-info" style="align-items: flex-start; margin-bottom: 2rem;">
+              <p><i class="fas fa-envelope"></i><a href="mailto:gereon.wildermann@kit.edu">gereon.wildermann@kit.edu</a></p>
+              <p><i class="fas fa-phone"></i><a href="tel:+4972160842274">+49 721 608-42274</a></p>
+            </div>
+            <address>
+              <strong>Karlsruhe Institute of Technology (KIT)</strong><br>
+              Institute of Concrete Structures and Building Materials<br>
+              Building Materials and Concrete Construction<br>
+              Division IV – Modeling and Simulation<br>
+              Gotthard-Franz-Str. 3, Building 50.31<br>
+              76131 Karlsruhe, Germany
+            </address>
           </section>
         </div>
       </main>
