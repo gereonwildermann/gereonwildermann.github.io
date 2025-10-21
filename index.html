@@ -298,7 +298,45 @@
       font-weight: 600;
       font-size: clamp(0.9rem, 2.2vw, 1.05rem);
     }
-    
+    /* Graphical Abstracts */
+    .paper-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .paper-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .graphical-abstract {
+      flex-shrink: 0;
+      width: 300px;
+      padding: 0.5rem;
+      background: var(--white);
+      border-radius: 6px;
+    }
+    .graphical-abstract img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .graphical-abstract img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .paper-item {
+        flex-direction: column;
+      }
+      .graphical-abstract {
+        width: 100%;
+        max-width: 600px;
+        margin: 1rem auto 0;
+      }
+    }
     /* Teaching Timeline */
     .teaching-timeline {
       position: relative;
@@ -510,18 +548,29 @@
             </ul>
           </section> -->
         
-        <section id="conference_papers">
+
+          <section id="conference_papers">
             <h2>Conference Papers</h2>
             <ul>
-              <li>
-                <strong>MULTIPHYSICS SIMULATION OF CONCRETE EVOLUTION DUE TO COMBINED ACTIONS OF DIFFERENT DEGRADATION PROCESSES</strong>
-                <span>Gereon Wildermann, Ravi Patel, Ludwig Bahr, Frank Dehn</span><br>
-                <em>28th International Conference on Structual Mechanics in Reactor Technology, 2025</em>
+              <li class="paper-item">
+                <div class="paper-content">
+                  <strong>MULTIPHYSICS SIMULATION OF CONCRETE EVOLUTION DUE TO COMBINED ACTIONS OF DIFFERENT DEGRADATION PROCESSES</strong>
+                  <span>Gereon Wildermann, Ravi Patel, Ludwig Bahr, Frank Dehn</span><br>
+                  <em>28th International Conference on Structual Mechanics in Reactor Technology, 2025</em>
+                </div>
+                <div class="graphical-abstract">
+                  <img src="images/graphical_abstract_smirt_2025.png" alt="Graphical abstract for SMiRT 2025 paper">
+                </div>
               </li>
-              <li>
-                <strong><a href="https://doi.org/10.21012/FC12.1253">Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</a></strong>
-                <span>Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn</span><br>
-                <em>FraMCoS XII - Fracture Mechanics for Concrete and Concrete Structures, 2025</em>
+              <li class="paper-item">
+                <div class="paper-content">
+                  <strong><a href="https://doi.org/10.21012/FC12.1253">Probabilistic service life prediction of chloride induced corrosion under sustained mechanical loading using multiphysical modeling</a></strong>
+                  <span>Gereon Wildermann, Annika Schultheiß, Ravi Patel, Frank Dehn</span><br>
+                  <em>FraMCoS XII - Fracture Mechanics for Concrete and Concrete Structures, 2025</em>
+                </div>
+                <div class="graphical-abstract">
+                  <img src="images/graphical_abstract_rilem_2025.png" alt="Graphical abstract for RILEM FraMCoS XII 2025 paper">
+                </div>
               </li>
             </ul>
           </section>
