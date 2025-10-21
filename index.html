@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gereon S. Wildermann - Academic Webpage</title>
   <meta name="description" content="Academic webpage of Gereon S. Wildermann." />
+  <link rel="canonical" href="https://gereonwildermann.github.io/" />
+  <meta property="og:title" content="Gereon S. Wildermann - Academic Webpage" />
+  <meta property="og:description" content="Academic webpage of Gereon S. Wildermann: research, teaching, and contact information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gereonwildermann.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#00876C" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
   <style>
@@ -287,6 +294,11 @@
     a:hover, a:focus {
       opacity: 0.7;
     }
+    /* Focus visibility for keyboard users */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+    }
     address {
       color: var(--gray80);
       font-style: normal;
@@ -390,6 +402,23 @@
       text-align: center;
       width: 100%;
     }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--white);
+      color: var(--black);
+      padding: 8px 12px;
+      z-index: 200;
+      border: 1px solid var(--green);
+      border-radius: 4px;
+      transform: translateY(0);
+    }
+    .skip-link:focus {
+      top: 10px;
+    }
     
     /* Responsive adjustments */
     @media (max-width: 968px) {
@@ -453,23 +482,30 @@
         padding: 1.5rem;
       }
     }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .nav-menu { transition: none !important; }
+      .graphical-abstract img { transition: none !important; }
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
   <!-- Header Navigation -->
   <header class="header-nav">
-    <nav class="nav-container">
-      <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
+    <nav class="nav-container" role="navigation" aria-label="Primary">
+      <a href="#home" class="nav-logo" aria-label="Home">
         <i class="fas fa-home"></i>
       </a>
-      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <button id="mobileToggle" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#" onclick="showPage('research'); return false;">Research</a></li>
-        <li><a href="#" onclick="showPage('teaching'); return false;">Teaching</a></li>
-        <li><a href="#" onclick="showPage('cv'); return false;">CV</a></li>
-        <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -505,7 +541,7 @@
     </aside>
 
     <div class="main-and-footer">
-      <main class="main-content">
+      <main id="main" class="main-content">
         <!-- Home Page -->
         <div id="home" class="page active">
           <div class="bio">
@@ -559,7 +595,7 @@
                   <em>28th International Conference on Structual Mechanics in Reactor Technology, 2025</em>
                 </div>
                 <div class="graphical-abstract">
-                  <img src="images/graphical_abstract_smirt_2025.png" alt="Graphical abstract for SMiRT 2025 paper">
+                  <img src="images/graphical_abstract_smirt_2025.png" alt="Graphical abstract for SMiRT 2025 paper" loading="lazy" decoding="async">
                 </div>
               </li>
               <li class="paper-item">
@@ -569,7 +605,7 @@
                   <em>FraMCoS XII - Fracture Mechanics for Concrete and Concrete Structures, 2025</em>
                 </div>
                 <div class="graphical-abstract">
-                  <img src="images/graphical_abstract_rilem_2025.png" alt="Graphical abstract for RILEM FraMCoS XII 2025 paper">
+                  <img src="images/graphical_abstract_rilem_2025.png" alt="Graphical abstract for RILEM FraMCoS XII 2025 paper" loading="lazy" decoding="async">
                 </div>
               </li>
             </ul>
@@ -686,49 +722,118 @@
   </div>
 
   <script>
-    // Set current year in footer
-    document.getElementById("y").textContent = new Date().getFullYear();
+    const PAGES = ['home', 'research', 'teaching', 'cv', 'contact'];
+    const TITLE_MAP = {
+      home: 'Home',
+      research: 'Research',
+      teaching: 'Teaching',
+      cv: 'CV',
+      contact: 'Contact'
+    };
 
-    // Page navigation
-    function showPage(pageName) {
+    function setYear() {
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
+    }
+
+    function setActivePage(pageName) {
       // Hide all pages
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.classList.remove('active'));
-      
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+
       // Show selected page
       const selectedPage = document.getElementById(pageName);
-      if (selectedPage) {
-        selectedPage.classList.add('active');
-      }
-      
-      // Update active nav link
+      if (selectedPage) selectedPage.classList.add('active');
+
+      // Update active nav link and aria-current
       const navLinks = document.querySelectorAll('.nav-menu a');
-      navLinks.forEach(link => link.classList.remove('active'));
-      event.target.classList.add('active');
-      
-      // Close mobile menu if open
+      navLinks.forEach(link => {
+        const target = (link.getAttribute('href') || '').replace('#','');
+        if (target === pageName) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
+        }
+      });
+
+      // Update document title
+      const baseTitle = 'Gereon S. Wildermann - Academic Webpage';
+      const section = TITLE_MAP[pageName] || 'Home';
+      document.title = section === 'Home' ? baseTitle : `${section} | ${baseTitle}`;
+
+      // Close mobile menu (and update button state)
+      closeMobileMenu();
+
+      // Scroll to top of main
+      const main = document.getElementById('main');
+      if (main) main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function handleRoute() {
+      let hash = (location.hash || '#home').replace('#','');
+      if (!PAGES.includes(hash)) hash = 'home';
+      setActivePage(hash);
+    }
+
+    function openMobileMenu() {
       const navMenu = document.getElementById('navMenu');
-      navMenu.classList.remove('active');
-      
-      // Scroll to top
-      window.scrollTo(0, 0);
+      const toggleBtn = document.getElementById('mobileToggle');
+      if (navMenu && toggleBtn) {
+        navMenu.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function closeMobileMenu() {
+      const navMenu = document.getElementById('navMenu');
+      const toggleBtn = document.getElementById('mobileToggle');
+      if (navMenu && toggleBtn) {
+        navMenu.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
     }
 
     // Mobile menu toggle
     function toggleMobileMenu() {
       const navMenu = document.getElementById('navMenu');
-      navMenu.classList.toggle('active');
+      if (navMenu && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     }
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
       const navMenu = document.getElementById('navMenu');
-      const toggleBtn = document.querySelector('.mobile-menu-toggle');
-      
-      if (!navMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
-        navMenu.classList.remove('active');
+      const toggleBtn = document.getElementById('mobileToggle');
+      if (!navMenu || !toggleBtn) return;
+      const clickedInsideMenu = navMenu.contains(event.target);
+      const clickedToggle = toggleBtn.contains(event.target);
+      if (!clickedInsideMenu && !clickedToggle) {
+        closeMobileMenu();
       }
     });
+
+    // Close mobile menu on Escape
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeMobileMenu();
+    });
+
+    // Close menu after clicking a nav item (on small screens)
+    document.getElementById('navMenu')?.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.tagName === 'A') closeMobileMenu();
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      setYear();
+      handleRoute();
+    });
+
+    window.addEventListener('hashchange', handleRoute);
   </script>
 </body>
 </html>

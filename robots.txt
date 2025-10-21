@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gereonwildermann.github.io/sitemap.xml
