@@ -26,7 +26,7 @@
     /* Header Navigation */
     .header-nav {
       background: var(--white);
-      border-bottom: 2px solid var(--green);
+      border-bottom: 1px solid var(--gray05);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -47,6 +47,13 @@
       font-weight: 700;
       color: var(--black);
       text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+    .nav-logo:hover {
+      color: var(--green);
+      background: var(--white);
     }
     .nav-menu {
       display: flex;
