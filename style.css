@@ -471,3 +471,56 @@
       .nav-menu { transition: none !important; }
       .graphical-abstract img { transition: none !important; }
     }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --white: #181c20;
+        --black: #f3f3f3;
+        --green: #4ea1ff;
+        --blue: #7ecfff;
+        --gray05: #23272e;
+        --gray60: #b7b7b7;
+        --gray80: #e3e3e3;
+      }
+      body {
+        background: var(--gray05);
+        color: var(--black);
+      }
+      .header-nav {
+        background: var(--white);
+        border-bottom-color: var(--green);
+      }
+      .sidebar, .bio, section, .graphical-abstract {
+        background: var(--white);
+        border-color: #23272e;
+      }
+      .nav-menu {
+        background: var(--white);
+      }
+      .nav-menu a:hover, .nav-menu a.active {
+        color: var(--green);
+        background: #23272e;
+      }
+      .contact-info p, .contact-info i, .title, .teaching-description, .teaching-title, .paper-content, address, li, .social-links a {
+        color: var(--gray60);
+      }
+      h1, h2, .teaching-period, .teaching-title, .paper-content strong, address strong, li strong {
+        color: var(--black);
+      }
+      a {
+        color: var(--green);
+      }
+      a:hover, a:focus {
+        opacity: 0.8;
+      }
+      .skip-link {
+        background: var(--white);
+        color: var(--black);
+        border-color: var(--green);
+      }
+      footer {
+        background: var(--gray05);
+        border-top: 1px solid #23272e;
+        color: var(--gray60);
+      }
+    }
