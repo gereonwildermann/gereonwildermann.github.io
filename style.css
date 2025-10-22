@@ -51,11 +51,11 @@
       transition: all 0.3s ease;
       border-radius: 4px;
     }
-    .nav-logo  a:hover {
+    .nav-logo:hover {
       color: var(--green);
       background: var(--white);
     }
-    .nav-logo  a:active {
+    .nav-logo.active {
       color: var(--black);
       background: var(--white);
     }
