@@ -481,6 +481,8 @@
         --gray05: #23272e;
         --gray60: #b7b7b7;
         --gray80: #e3e3e3;
+        --surface: #23272e;
+        --surface-hover: #26303a;
       }
       body {
         background: var(--gray05);
@@ -492,14 +494,14 @@
       }
       .sidebar, .bio, section, .graphical-abstract {
         background: var(--white);
-        border-color: #23272e;
+        border-color: var(--surface);
       }
       .nav-menu {
         background: var(--white);
       }
       .nav-menu a:hover, .nav-menu a.active {
         color: var(--green);
-        background: #23272e;
+        background: var(--surface-hover);
       }
       .contact-info p, .contact-info i, .title, .teaching-description, .teaching-title, .paper-content, address, li, .social-links a {
         color: var(--gray60);
@@ -520,7 +522,7 @@
       }
       footer {
         background: var(--gray05);
-        border-top: 1px solid #23272e;
+        border-top: 1px solid var(--surface);
         color: var(--gray60);
       }
     }
