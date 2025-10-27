@@ -396,16 +396,6 @@
       text-align: center;
       width: 100%;
     }
-
-    /* Skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-    }
-    .skip-link:focus {
-      top: 10px;
-    }
     
     /* Responsive adjustments */
     @media (max-width: 968px) {
@@ -518,11 +508,6 @@
       }
       a:hover, a:focus {
         opacity: 0.8;
-      }
-      .skip-link {
-        background: var(--white);
-        color: var(--black);
-        border-color: var(--green);
       }
       footer {
         background: var(--gray05);
