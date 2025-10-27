@@ -396,6 +396,8 @@
       text-align: center;
       width: 100%;
     }
+
+    /* skip-link styles removed */
     
     /* Responsive adjustments */
     @media (max-width: 968px) {
@@ -509,6 +511,7 @@
       a:hover, a:focus {
         opacity: 0.8;
       }
+      /* skip-link styles removed */
       footer {
         background: var(--gray05);
         border-top: 1px solid var(--surface);
