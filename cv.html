@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV — Gereon Wildermann</title>
+  <meta name="description" content="CV — Gereon Wildermann: education and experience." />
+  <link rel="canonical" href="https://gereonwildermann.github.io/cv.html" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="header-nav">
+    <nav class="nav-container" role="navigation" aria-label="Primary">
+      <a href="index.html" class="nav-logo" aria-label="Home">
+        <i class="fas fa-home"></i>
+      </a>
+      <button id="mobileToggle" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile-image">
+        <img src="images/gereon.png" alt="Profile picture of Gereon S. Wildermann">
+      </div>
+      <h1>Gereon S. Wildermann</h1>
+      <p class="title">Ph.D. Student / Research Assistant</p>
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Karlsruhe,+Germany" target="_blank" rel="noopener">Karlsruhe, Germany</a></p>
+        <p><i class="fas fa-university"></i> <a href="https://www.kit.edu/english/index.php" target="_blank" rel="noopener">Karlsruhe Institute of Technology (KIT)</a></p>
+      </div>
+      <div class="social-links">
+        <a href="https://orcid.org/0009-0001-2234-319X" target="_blank" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+        <a href="https://www.researchgate.net/profile/Gereon-Wildermann" target="_blank" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+        <a href="https://github.com/gereonwildermann" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/gereon-wildermann-95a619217/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </aside>
+
+    <div class="main-and-footer">
+      <main id="main" class="main-content">
+        <section id="education">
+          <h2>Education</h2>
+          <ul>
+            <li>
+              <strong>Ph.D. in Civil Engineering</strong>
+              <span>Karlsruhe Institute of Technology</span><br>
+              <span>2024 – Present</span>
+            </li>
+            <li>
+              <strong>M.Sc. in Engineering Structures</strong>
+              <span>Karlsruhe Institute of Technology</span><br>
+              <span>2021 – 2023</span>
+            </li>
+            <li>
+              <strong>B.Sc. in Civil Engineering</strong>
+              <span>Karlsruhe Institute of Technology</span><br>
+              <span>2018 – 2021</span>
+            </li>
+          </ul>
+        </section>
+
+        <section id="experience">
+          <h2>Experience</h2>
+          <ul>
+            <li>
+              <strong>Research Assistant</strong>
+              <a href="https://www.imb.kit.edu/bt/">Karlsruhe Institute of Technology - Institute of Concrete Structures and Building Materials</a><br>
+              <span>Focus on multiscale modeling of concrete</span><br>
+              <span>2024 – Present</span>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer>
+        <p>© <span id="y"></span> Gereon Wildermann. Built with GitHub Pages.</p>
+      </footer>
+    </div>
+  </div>
+  <script>
+    function setYear() { const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear(); }
+    function markActiveNav() { const path = (location.pathname || '').split('/').pop() || 'index.html'; document.querySelectorAll('.nav-menu a').forEach(link => { const href = link.getAttribute('href') || ''; const file = href.split('/').pop() || href; if ((file === 'index.html' && (path === 'index.html' || path === '')) || file === path) { link.classList.add('active'); link.setAttribute('aria-current','page'); } else { link.classList.remove('active'); link.removeAttribute('aria-current'); } }); }
+    function openMobileMenu(){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(navMenu && toggleBtn){ navMenu.classList.add('active'); toggleBtn.setAttribute('aria-expanded','true'); }}
+    function closeMobileMenu(){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(navMenu && toggleBtn){ navMenu.classList.remove('active'); toggleBtn.setAttribute('aria-expanded','false'); }}
+    function toggleMobileMenu(){ const navMenu = document.getElementById('navMenu'); if(navMenu && navMenu.classList.contains('active')) closeMobileMenu(); else openMobileMenu(); }
+    document.addEventListener('click', function(e){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(!navMenu||!toggleBtn) return; const inside = navMenu.contains(e.target); const togg = toggleBtn.contains(e.target); if(!inside && !togg) closeMobileMenu(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMobileMenu(); });
+    document.getElementById('navMenu')?.addEventListener('click', (e)=>{ if(e.target && e.target.tagName==='A') closeMobileMenu(); });
+    document.addEventListener('DOMContentLoaded', ()=>{ setYear(); markActiveNav(); });
+  </script>
+</body>
+</html>
