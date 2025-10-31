@@ -16,6 +16,42 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="./style.css">
+  <!-- Structured Data: WebSite + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://gereonwildermann.github.io/#website",
+        "url": "https://gereonwildermann.github.io/",
+        "name": "Gereon Wildermann",
+        "publisher": {
+          "@type": "Person",
+          "name": "Gereon S. Wildermann"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://gereonwildermann.github.io/#person",
+        "name": "Gereon S. Wildermann",
+        "url": "https://gereonwildermann.github.io/",
+        "jobTitle": "Ph.D. Student / Research Assistant",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Karlsruhe Institute of Technology",
+          "url": "https://www.kit.edu/"
+        },
+        "sameAs": [
+          "https://github.com/gereonwildermann",
+          "https://orcid.org/0009-0001-2234-319X",
+          "https://www.researchgate.net/profile/Gereon-Wildermann",
+          "https://www.linkedin.com/in/gereon-wildermann-95a619217/"
+        ]
+      }
+    ]
+  }
+  </script>
 
 </head>
 <body>
