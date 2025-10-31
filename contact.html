@@ -71,15 +71,16 @@
     </div>
   </div>
   <script>
-    function setYear() { const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear(); }
-    function markActiveNav() { const path = (location.pathname || '').split('/').pop() || 'index.html'; document.querySelectorAll('.nav-menu a').forEach(link => { const href = link.getAttribute('href') || ''; const file = href.split('/').pop() || href; if ((file === 'index.html' && (path === 'index.html' || path === '')) || file === path) { link.classList.add('active'); link.setAttribute('aria-current','page'); } else { link.classList.remove('active'); link.removeAttribute('aria-current'); } }); }
-    function openMobileMenu(){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(navMenu && toggleBtn){ navMenu.classList.add('active'); toggleBtn.setAttribute('aria-expanded','true'); }}
-    function closeMobileMenu(){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(navMenu && toggleBtn){ navMenu.classList.remove('active'); toggleBtn.setAttribute('aria-expanded','false'); }}
-    function toggleMobileMenu(){ const navMenu = document.getElementById('navMenu'); if(navMenu && navMenu.classList.contains('active')) closeMobileMenu(); else openMobileMenu(); }
-    document.addEventListener('click', function(e){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(!navMenu||!toggleBtn) return; const inside = navMenu.contains(e.target); const togg = toggleBtn.contains(e.target); if(!inside && !togg) closeMobileMenu(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMobileMenu(); });
-    document.getElementById('navMenu')?.addEventListener('click', (e)=>{ if(e.target && e.target.tagName==='A') closeMobileMenu(); });
-    document.addEventListener('DOMContentLoaded', ()=>{ setYear(); markActiveNav(); });
+  function setYear() { const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear(); }
+  function markActiveNav() { const path = (location.pathname || '').split('/').pop() || 'index.html'; document.querySelectorAll('.nav-menu a').forEach(link => { const href = link.getAttribute('href') || ''; const file = href.split('/').pop() || href; if ((file === 'index.html' && (path === 'index.html' || path === '')) || file === path) { link.classList.add('active'); link.setAttribute('aria-current','page'); } else { link.classList.remove('active'); link.removeAttribute('aria-current'); } }); }
+  function updateMobileToggleIcon(isOpen){ const toggleBtn = document.getElementById('mobileToggle'); if(!toggleBtn) return; const icon = toggleBtn.querySelector('i'); if(icon){ icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars'; } toggleBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu'); }
+  function openMobileMenu(){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(navMenu && toggleBtn){ navMenu.classList.add('active'); toggleBtn.setAttribute('aria-expanded','true'); updateMobileToggleIcon(true); }}
+  function closeMobileMenu(){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(navMenu && toggleBtn){ navMenu.classList.remove('active'); toggleBtn.setAttribute('aria-expanded','false'); updateMobileToggleIcon(false); }}
+  function toggleMobileMenu(){ const navMenu = document.getElementById('navMenu'); if(navMenu && navMenu.classList.contains('active')) closeMobileMenu(); else openMobileMenu(); }
+  document.addEventListener('click', function(e){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(!navMenu||!toggleBtn) return; const inside = navMenu.contains(e.target); const togg = toggleBtn.contains(e.target); if(!inside && !togg) closeMobileMenu(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMobileMenu(); });
+  document.getElementById('navMenu')?.addEventListener('click', (e)=>{ if(e.target && e.target.tagName==='A') closeMobileMenu(); });
+  document.addEventListener('DOMContentLoaded', ()=>{ setYear(); markActiveNav(); const navMenu = document.getElementById('navMenu'); updateMobileToggleIcon(navMenu && navMenu.classList.contains('active')); });
   </script>
 </body>
 </html>

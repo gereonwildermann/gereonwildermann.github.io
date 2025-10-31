@@ -107,12 +107,24 @@
       });
     }
 
+    function updateMobileToggleIcon(isOpen) {
+      const toggleBtn = document.getElementById('mobileToggle');
+      if (!toggleBtn) return;
+      const icon = toggleBtn.querySelector('i');
+      if (icon) {
+        icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+      }
+      // update accessible label
+      toggleBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
+
     function openMobileMenu() {
       const navMenu = document.getElementById('navMenu');
       const toggleBtn = document.getElementById('mobileToggle');
       if (navMenu && toggleBtn) {
         navMenu.classList.add('active');
         toggleBtn.setAttribute('aria-expanded', 'true');
+        updateMobileToggleIcon(true);
       }
     }
 
@@ -122,6 +134,7 @@
       if (navMenu && toggleBtn) {
         navMenu.classList.remove('active');
         toggleBtn.setAttribute('aria-expanded', 'false');
+        updateMobileToggleIcon(false);
       }
     }
 
@@ -158,6 +171,9 @@
     document.addEventListener('DOMContentLoaded', () => {
       setYear();
       markActiveNav();
+      // ensure toggle icon matches initial state
+      const navMenu = document.getElementById('navMenu');
+      updateMobileToggleIcon(navMenu && navMenu.classList.contains('active'));
     });
   </script>
 </body>
