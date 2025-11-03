@@ -41,7 +41,7 @@ def draw_initials(img, text='GW'):
     draw.text(((w - tw) / 2, (h - th) / 2 - (w*0.03)), text, font=font, fill=(240,240,240,255))
     return img
 
-sizes = [16, 32, 48, 64, 128, 256]
+sizes = [16, 32, 48, 64, 120, 128, 152, 180, 192, 256]
 
 for s in sizes:
     img = draw_gradient_rounded(s, radius=max(2, int(s * 0.125)))
@@ -50,16 +50,10 @@ for s in sizes:
     img.save(out)
     print('WROTE', out)
 
-# 192 PNG for Android
-img = draw_gradient_rounded(192, radius=24)
-img = draw_initials(img, 'GW')
-out192 = ICON_DIR / 'favicon-192.png'
-img.save(out192)
-print('WROTE', out192)
-
-# create ICO with multiple sizes
-icons = [Image.open(str(ICON_DIR / f'favicon-{s}.png')) for s in sizes]
-icons[0].save(ICON_DIR / 'favicon.ico', format='ICO', sizes=[(s, s) for s in sizes])
+# create ICO with standard sizes (16, 32, 48, 64, 128, 256)
+ico_sizes = [16, 32, 48, 64, 128, 256]
+icons = [Image.open(str(ICON_DIR / f'favicon-{s}.png')) for s in ico_sizes]
+icons[0].save(ICON_DIR / 'favicon.ico', format='ICO', sizes=[(s, s) for s in ico_sizes])
 print('WROTE', ICON_DIR / 'favicon.ico')
 
 print('Done (Pillow-only generator)')
