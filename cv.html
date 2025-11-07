@@ -28,6 +28,17 @@
     "name": "Gereon Wildermann"
   }
   </script>
+  <!-- Print styles and small CV download button styling -->
+  <style>
+    /* Hide non-essential chrome when printing or generating PDF */
+    @media print {
+      .header-nav, .sidebar, .mobile-menu-toggle, .nav-container, footer { display: none !important; }
+      .main-content { width: 100% !important; margin: 0; padding: 0; }
+    }
+    /* small button style that matches site color */
+    .download-cv { display: inline-block; margin: 0 0 1rem 0; background: #00876C; color: #fff; border: 0; padding: .5rem .75rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
+    .download-cv:active { transform: translateY(1px); }
+  </style>
 </head>
 <body>
   <header class="header-nav">
@@ -63,12 +74,14 @@
         <a href="https://www.researchgate.net/profile/Gereon-Wildermann" target="_blank" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
         <a href="https://github.com/gereonwildermann" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/gereon-wildermann-95a619217/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://scholar.google.com/citations?hl=de&user=72tX6RcAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+        <a href="https://scholar.google.com/citations?user=72tX6RcAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
       </div>
     </aside>
 
     <div class="main-and-footer">
       <main id="main" class="main-content">
+        <!-- Download CV (precompiled) -->
+        <!-- <a id="downloadCvBtn" class="download-cv" href="./files/sample.pdf" download aria-label="Download CV as PDF">Download CV as PDF</a> -->
         <section id="education">
           <h2>Education</h2>
           <ul>
@@ -129,6 +142,7 @@
   document.addEventListener('click', function(e){ const navMenu = document.getElementById('navMenu'); const toggleBtn = document.getElementById('mobileToggle'); if(!navMenu||!toggleBtn) return; const inside = navMenu.contains(e.target); const togg = toggleBtn.contains(e.target); if(!inside && !togg) closeMobileMenu(); });
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMobileMenu(); });
   document.getElementById('navMenu')?.addEventListener('click', (e)=>{ if(e.target && e.target.tagName==='A') closeMobileMenu(); });
+
   document.addEventListener('DOMContentLoaded', ()=>{ setYear(); markActiveNav(); const navMenu = document.getElementById('navMenu'); updateMobileToggleIcon(navMenu && navMenu.classList.contains('active')); });
   </script>
 </body>
