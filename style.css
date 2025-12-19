@@ -352,7 +352,7 @@
     /* Teaching Timeline */
     .teaching-timeline {
       position: relative;
-      padding-left: 7rem;
+      padding-left: 5rem;
     }
     .teaching-item {
       position: relative;
@@ -360,7 +360,7 @@
     }
     .edu-logo {
       position: absolute;
-      left: -7rem;
+      left: -5.5rem;
       top: 0px;
       width: 70px;
       height: 70px;
@@ -404,7 +404,7 @@
     /* Education Timeline */
     .education-timeline {
       position: relative;
-      padding-left: 7rem;
+      padding-left: 5rem;
     }
     .education-item {
       position: relative;
@@ -424,7 +424,7 @@
     /* Experience Timeline */
     .experience-timeline {
       position: relative;
-      padding-left: 7rem;
+      padding-left: 5rem;
     }
     .experience-item {
       position: relative;
