@@ -420,7 +420,7 @@
     /* Education Timeline */
     .education-timeline {
       position: relative;
-      padding-left: 5rem;
+      padding-left: clamp(4rem, 10vw, 5rem);
     }
     .education-item {
       position: relative;
@@ -440,7 +440,7 @@
     /* Experience Timeline */
     .experience-timeline {
       position: relative;
-      padding-left: 5rem;
+      padding-left: clamp(4rem, 10vw, 5rem);
     }
     .experience-item {
       position: relative;
