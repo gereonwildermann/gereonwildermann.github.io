@@ -8,11 +8,6 @@
       --gray80: #333333;
       --kit-logo: url('./icon/Logo_KIT.png');
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --kit-logo: url('./icon/Logo_KIT_darkmode.png');
-      }
-    }
     /* Base styles */
     * {
       margin: 0;
@@ -367,7 +362,6 @@
       object-fit: contain;
       border-radius: 50%;
       border: 1px solid rgba(77, 96, 116, 0.2);
-      background: var(--white);
       padding: 6px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -385,6 +379,11 @@
       }
       .dark-mode {
         display: block;
+      }
+      
+      /* Invert grayscale colors in dark mode */
+      .edu-logo{
+        filter: invert(1) hue-rotate(180deg);
       }
     }
     .teaching-period {
