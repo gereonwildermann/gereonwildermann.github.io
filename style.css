@@ -372,13 +372,13 @@
     }
     .edu-logo {
       position: absolute;
-      left: clamp(-5.5rem, -6vw, -4.5rem);
+      left: clamp(-5.5rem, -10vw, -4.75rem);
       top: 0px;
-      width: clamp(58px, 10vw, 70px);
-      height: clamp(58px, 10vw, 70px);
+      width: clamp(60px, 10vw, 70px);
+      height: clamp(60px, 10vw, 70px);
       object-fit: contain;
       border-radius: 50%;
-      border: 1px solid var(--gray30);
+      border: 1px solid var(--gray20);
       padding: 3px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
