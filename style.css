@@ -4,6 +4,8 @@
       --green: #00876C;
       --blue: #4664aa;
       --gray05: #f3f3f3;
+      --gray20: #cccccc;
+      --gray30: #999999;
       --gray60: #666666;
       --gray80: #333333;
     }
@@ -362,7 +364,7 @@
     /* Teaching Timeline */
     .teaching-timeline {
       position: relative;
-      padding-left: 5rem;
+      padding-left: clamp(4rem, 10vw, 5rem);
     }
     .teaching-item {
       position: relative;
@@ -370,19 +372,19 @@
     }
     .edu-logo {
       position: absolute;
-      left: -5.5rem;
+      left: clamp(-5.5rem, -6vw, -4.5rem);
       top: 0px;
-      width: 70px;
-      height: 70px;
+      width: clamp(58px, 10vw, 70px);
+      height: clamp(58px, 10vw, 70px);
       object-fit: contain;
       border-radius: 50%;
-      border: 1px solid rgba(77, 96, 116, 0.2);
-      padding: 6px;
+      border: 1px solid var(--gray30);
+      padding: 3px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .edu-logo:hover {
       transform: scale(1.03);
-      border-color: rgba(77, 96, 116, 0.5);
+      border-color: var(--green);
     }
     /* Dark mode logo handling */
     .dark-mode {
