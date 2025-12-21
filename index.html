@@ -86,7 +86,10 @@
     <!-- Sidebar (appears on all pages) -->
     <aside class="sidebar">
       <div class="profile-image">
-        <img src="images/profile_picture_128x128.png" alt="Profile picture of Gereon S. Wildermann">
+        <picture>
+          <source srcset="images/profile_picture_256x256.png" media="(min-width: 600px)">
+          <img src="images/profile_picture_128x128.png" alt="Profile picture of Gereon S. Wildermann">
+        </picture>
       </div>
       <h1>Gereon S. Wildermann</h1>
       <p class="title">Ph.D. Student / Research Assistant</p>
