@@ -894,11 +894,22 @@
         height: calc(100vh - 64px);
         background: var(--white);
         flex-direction: column;
-        padding: var(--space-xl) var(--space-md);
-        gap: var(--space-sm);
+        padding: var(--space-xl) var(--space-lg);
+        gap: var(--space-md);
         box-shadow: var(--shadow-lg);
         transition: right var(--transition-base);
         border-left: 1px solid var(--gray-200);
+      }
+
+      .nav-menu li {
+        width: 100%;
+      }
+
+      .nav-menu a {
+        display: block;
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
       }
       
       .nav-menu.active {
