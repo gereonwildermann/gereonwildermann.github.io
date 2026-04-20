@@ -164,8 +164,8 @@
       align-items: center;
       padding: 0 var(--space-xl);
       height: 64px;
-      max-width: 1400px;
-      margin: 0 auto;
+      max-width: none;
+      margin: 0;
       width: 100%;
     }
     
@@ -1142,6 +1142,7 @@
       .social-links a:hover {
         background: none;
         color: var(--primary);
+      }
 
       /* --- Cards (bio / sections) --- */
       .bio,
